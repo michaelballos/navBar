@@ -30,27 +30,23 @@ const routes = {
   },
 };
 
+
+
 function pagePath(_path) {
   const pageproperties = routes[_path];
   const page = pageproperties.page; 
   return page;    
+
 }
 
 console.log(pagePath('/'));
 console.log(pagePath('/about'));
 console.log(pagePath('/docs'));
 console.log(pagePath('/examples'));
+  
 
-let insideRoute = '/docs/getting-started'; 
+
+let insideRoute = ('/docs/getting-started'); 
 let pageArray = insideRoute.split('/'); 
-
-console.log(pageArray); 
-
-
-
-
-
-
-
-
-{ /* */ }
+console.log(pageArray[1]);
+console.log(pageArray[2]);
