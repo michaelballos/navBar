@@ -1,7 +1,12 @@
 document.getElementById('root').innerHTML = `
-<div class="navbarContainer">
-<nav class="navbar">
+<div id="navbarContainer">
+<nav id="navbar">
   <a class="navbarLogo" href="#">Navbar</a>
+  <button class="nav-toggle">
+    <span class="bar-top"></span>
+    <span class="bar-mid"></span>
+    <span class="bar-bot"></span>
+  </button> 
    <div id="navItemContainer">
     <ul id="navLinkContainer" class="navLinkContainer">
     </ul>
@@ -14,54 +19,8 @@ document.getElementById('root').innerHTML = `
  </div>
 `;
 
-const routes = {
-  '/': {
-    page: 'Home',
-  },
-  '/about': {
-    page: 'About',
-  },
-  
-  '/docs': {
-    page: 'Documentation',
 
-    routes: {
-      '/getting-started': {
-        page: 'Getting Started',
-      },
-      '/api-reference': {
-        page: 'API Reference',
-      },
-    }
-  },
-  '/examples': {
-    page: 'Examples',
-    routes: {
-      '/counter': {
-        page: 'Counter',
-      },
-      '/todo': {
-        page: 'Todo',
-      },
-    }
-  },
-};
 
-/**
- * Returns the display name based on route
- * @param {*} _path 
- * @returns 
- */
-pagePath = (_path) => {
-  const pageProperties = routes[_path];
-  const page = pageProperties.page; 
-  return page;    
-};
-
-console.log(pagePath('/'));
-console.log(pagePath('/about'));
-console.log(pagePath('/docs'));
-console.log(pagePath('/examples'));
 
 
 
@@ -84,6 +43,8 @@ const navLinkContainer = document.getElementById('navLinkContainer');
 navLinkContainer.insertAdjacentHTML('beforeend', navItem);
 return;
 };
+
+
 
 /**
  * append dropdown li w/ 3 sub items into ul container 
@@ -110,6 +71,8 @@ const dropdownLinkContainer = document.getElementById('navLinkContainer');
 dropdownLinkContainer.insertAdjacentHTML('beforeend', navDropdown);
 return;
 };
+
+
 
 const homeLinkItem = appendListItem('Home');
 const linkListItem = appendListItem('Link');
