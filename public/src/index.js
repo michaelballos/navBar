@@ -70,9 +70,8 @@ console.log(pagePath('/examples'));
  * @param {*} displayName
  * @returns
  */  
-
 const navbarDisplayNames = [];
-makeListItems = (displayName) => {
+appendListItem = (displayName) => {
   const navItem =`
     <li class="navItem">
       <a class="navLink">
@@ -83,11 +82,28 @@ makeListItems = (displayName) => {
 
 const navLinkContainer = document.getElementById('navLinkContainer');  
 navLinkContainer.insertAdjacentHTML('beforeend', navItem);
+return;
+};
+
+const navbarDropdown = (displayName1, displayName2, displayName3) => {
+  const navDropdown = `
+    <div id="dropdownContainerChild">  
+       <a class="dropdownItemLink" href="#"> ${displayName1} </a>
+       <a class="dropdownItemLink" href="#"> ${displayName2} </a>
+      <div class="dropdownDivider"></div>
+       <a class="dropdownItemLink" href="#"> ${displayName3} </a>
+    </div>
+  `;
+
+const dropdownListContainer = document.getElementsByClassName('dropdownItem');
+dropdownListContainer.insertAdjacentHTML('beforeend', navDropdown);
+return;
 };
 
 const appendHomeList = appendListItem('Home');
 const appendLinkList = appendListItem('Link');
 const appendDropdownList = appendListItem('Dropdown');
+
 const appendDisabledList = appendListItem('Disabled');
 
 
@@ -121,9 +137,9 @@ function appendLink(displayName) {
       <li class="navItem">
         <a class="navLink" href="#">Link</a>
       </li>
-      <li class="DropdownItem">
-        <a class="DropdownLink" href="#">Dropdown</a>
-        <div class="dropdownContainer">
+      <li class="dropdownItem">
+        <a class="dropdownLinkContainer" href="#">Dropdown</a>
+        <div class="dropdownContainerChild">
           <a class="dropdownItemLink" href="#">Action</a>
           <a class="dropdownItemLink" href="#">Another action</a>
           <div class="dropdownDivider"></div>
