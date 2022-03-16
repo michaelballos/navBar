@@ -70,7 +70,6 @@ console.log(pagePath('/examples'));
  * @param {*} displayName
  * @returns
  */  
-const navbarDisplayNames = [];
 appendListItem = (displayName) => {
   const navItem =`
     <li class="navItem">
@@ -85,68 +84,25 @@ navLinkContainer.insertAdjacentHTML('beforeend', navItem);
 return;
 };
 
-const navbarDropdown = (displayName1, displayName2, displayName3) => {
+navbarDropdown = (dropdown1, dropdown2, dropdown3, dropdown4) => {
   const navDropdown = `
-    <div id="dropdownContainerChild">  
-       <a class="dropdownItemLink" href="#"> ${displayName1} </a>
-       <a class="dropdownItemLink" href="#"> ${displayName2} </a>
+  <li id="dropdownListContainer">
+    <a id="dropdownLink" href="#"> ${dropdown1} </a>
+    <div id="dropdownContent">  
+       <a class="dropdownItemLink" href="#"> ${dropdown2} </a>
+       <a class="dropdownItemLink" href="#"> ${dropdown3} </a>
       <div class="dropdownDivider"></div>
-       <a class="dropdownItemLink" href="#"> ${displayName3} </a>
+       <a class="dropdownItemLink" href="#"> ${dropdown4} </a>
     </div>
   `;
 
-const dropdownListContainer = document.getElementsByClassName('dropdownItem');
-dropdownListContainer.insertAdjacentHTML('beforeend', navDropdown);
+const dropdownLinkContainer = document.getElementById('navLinkContainer');
+dropdownLinkContainer.insertAdjacentHTML('beforeend', navDropdown);
 return;
 };
 
-const appendHomeList = appendListItem('Home');
-const appendLinkList = appendListItem('Link');
-const appendDropdownList = appendListItem('Dropdown');
-
-const appendDisabledList = appendListItem('Disabled');
-
-
-   /*
-function appendLink(displayName) {
-  /**
-   * Create the html string for the link based on all 
-   * parameters to the function
-  const link = `
-    <li>
-      ...
-        ${displayName}
-      ...
-    </li>
-  `;
-  
-  // Get the elmeent that is the container for the links
-  const container = document.getElementById(LinkContainerID);
-
-  // Append html to the links container
-  container.insertAdjacentHTML('beforeend', link);
-
-  return;
-} 
-*/
-
-/*
-      <li class="navItem">
-        <a class="navLink" href="#">Home</a>
-      </li>
-      <li class="navItem">
-        <a class="navLink" href="#">Link</a>
-      </li>
-      <li class="dropdownItem">
-        <a class="dropdownLinkContainer" href="#">Dropdown</a>
-        <div class="dropdownContainerChild">
-          <a class="dropdownItemLink" href="#">Action</a>
-          <a class="dropdownItemLink" href="#">Another action</a>
-          <div class="dropdownDivider"></div>
-          <a class="dropdownItemLink" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="navItem">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    */
+const homeLinkItem = appendListItem('Home');
+const linkListItem = appendListItem('Link');
+const dropdownListItem = navbarDropdown('Dropdown', 'title1', 'title2', 'title3');
+const disabledListItem = appendListItem('Disabled');
+   
