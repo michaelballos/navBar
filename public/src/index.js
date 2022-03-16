@@ -52,11 +52,11 @@ const routes = {
  * @param {*} _path 
  * @returns 
  */
-function pagePath(_path) {
+pagePath = (_path) => {
   const pageProperties = routes[_path];
   const page = pageProperties.page; 
   return page;    
-}
+};
 
 console.log(pagePath('/'));
 console.log(pagePath('/about'));
@@ -66,13 +66,14 @@ console.log(pagePath('/examples'));
 
 
 /**
- * appends <li> item into <ul> container   
+ * append reg li item into nav ul container   
  * @param {*} displayName
  * @returns
  */  
 appendListItem = (displayName) => {
+// assign & define string to append
   const navItem =`
-    <li class="navItem">
+    <li class="navItem" href="#">
       <a class="navLink">
         ${displayName}
       </a>
@@ -84,15 +85,24 @@ navLinkContainer.insertAdjacentHTML('beforeend', navItem);
 return;
 };
 
-navbarDropdown = (dropdown1, dropdown2, dropdown3, dropdown4) => {
+/**
+ * append dropdown li w/ 3 sub items into ul container 
+ * @param {*} dropdownTitle
+ * @param {*} dropdown2
+ * @param {*} dropdown3
+ * @param {*} dropdown4
+ * @returns
+ */
+navbarDropdown = (dropdownLinkDisplay, dropdown1, dropdown2, dropdown3) => {
+// assign & define dropdown li string to append
   const navDropdown = `
   <li id="dropdownListContainer">
-    <a id="dropdownLink" href="#"> ${dropdown1} </a>
+    <a id="dropdownLink" href="#"> ${dropdownLinkDisplay} </a>
     <div id="dropdownContent">  
+       <a class="dropdownItemLink" href="#"> ${dropdown1} </a>
        <a class="dropdownItemLink" href="#"> ${dropdown2} </a>
-       <a class="dropdownItemLink" href="#"> ${dropdown3} </a>
       <div class="dropdownDivider"></div>
-       <a class="dropdownItemLink" href="#"> ${dropdown4} </a>
+       <a class="dropdownItemLink" href="#"> ${dropdown3} </a>
     </div>
   `;
 
@@ -103,6 +113,6 @@ return;
 
 const homeLinkItem = appendListItem('Home');
 const linkListItem = appendListItem('Link');
-const dropdownListItem = navbarDropdown('Dropdown', 'title1', 'title2', 'title3');
+const dropdownListItem = navbarDropdown('Dropdown', 'Action', 'Another action', 'Something else here');
 const disabledListItem = appendListItem('Disabled');
    
