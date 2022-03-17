@@ -1,0 +1,22 @@
+{
+  "name": "navbar",
+  "version": "1.0.0",
+  "description": "Single Page Application, Routing, and Navbar Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelballos/navBar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelballos/navBar/issues"
+  },
+  "homepage": "https://github.com/michaelballos/navBar#readme",
+  "dependencies": {
+    "jshint": "^2.13.4"
+  }
+}
