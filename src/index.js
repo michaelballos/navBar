@@ -52,57 +52,60 @@ console.log(pagePath('/examples'));
 const body = document.body;
 body.setAttribute('id', 'root');
 
-const staticIds = {
-  navbarDiv: {
-    type: 'id',
-    value: 'navbarContainer'
-  },
-  navbar: {
-    type: 'id',
-    value: 'navbar'
-  },
-  navToggleBtn: {
-    type: 'button',
-    value: 'navToggle' 
-  },
+/**
+ * can hard code everything but elements that repeat
+ * if it repeats "extract it to a constant"
+*/
+ appendString = (selectById, position) => {
+  const element = document.getElementById(`${selectById}`);
+  element.insertAdjacentElement(`${position}`, );
+ }
 
-};
 
-createComponent = (appendId, stringName) => {
-  const append = document.getElementById(appendId);
-  append.insertAdjacentHTML('beforeend', stringName); 
-  return;
-};
 
+//static-containers-non repeating
 hydrate = () => {
   const topLevelPaths = Object.keys(routes);
+    setup = () => {`
+      <nav id="navContnr">
+        <a id="navLogo" href="#">Navbar</a>
+          <button id="navTglBtn">
+            ${spanBrs} 
+          </button>
 
-  setup(staticIds);
-  populateNavbar(topLevelPaths);
-  return topLevelPaths;
+          <div id="navSuppCont"
+            <ul id="navLnkContnr">
+              ${mainLnks} 
+                <div id="drpdwnMnu">
+                </div>
+
+            </ul> 
+            <form id="srchContnr">
+              <input id="srchBxInpt" type="search" placeholder="Search" aria-label="Search">
+              <button id="srchBtn" type="submit">Search</button>
+            </form>
+          </div>
+      </nav>
+    `;
+  };
+
+  populateNavbar(topLevelPaths)
+
+   /*
+   <span id="bar"></span>  
+    <span id="bar"></span>  
+    <span id="bar"></span>  
+  */
+
 };
-console.log(hydrate());
+
+
+
+
+
+
+
 /*
-div = (appendId) => {
-  const appendString = `
-  <div id="${id}"></div>`;
-  return createComponent();
-};
-
-div('navbarContainer', 'root');
-
-
-
-
-/*
-nav = (id, className) => {
-  const string = `
-    <nav id="${id}" class="${className}"></nav>
-`;
-  createComponent(string); 
-  return;
-};
-
 a = (id, className) => {
   const string = `
   <a id="${id}" class="${className}" href="#">Navbar</a>
@@ -182,12 +185,11 @@ li('Home');
 li('Link');
 liDropdown('Dropdown', 'Action', 'Another action', 'Something else here');
 li('Disabled');
-*/
+
+
 
 
 // 1. 
-
-/**
  * 0. Commit changes and push
  * 
  * 1. Extract the append logic to helper function called createComponent
@@ -196,15 +198,7 @@ li('Disabled');
  * 
  * 2. Instead of taking append id parameter or hard coding the append id,
  * write a function called hydrate that would look something like
- * 
- * ```js
- * const staticIDs = {
- *   navbar: {
- *     type: 'id',
- *     value: 'navbar_container',
- *   },
- * };`
- * 
+ *
  * function hydrate() {
  *   const topLevelPaths = Object.keys(routes)
  *   
@@ -229,5 +223,5 @@ li('Disabled');
  * 
  * 4. Commit changes and push
  * 
- * 5. Format the file with [prettier](https://prettier.io/docs/en/install.html)
+ * 5. Format the file with [prettier](https://prettier.io/docs/en/install.html) 
  */
