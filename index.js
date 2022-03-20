@@ -1,4 +1,3 @@
-document.body.setAttribute('id', 'root');
 
 //practice 
 const yourMama = 'total inches in this pussy:';
@@ -20,6 +19,7 @@ console.log(yourMama, sum, 'inches');
 const routes = {
   '/': {
     page: 'Home',
+    file: '/index.html',
   },
   '/about': {
     page: 'About',
@@ -58,8 +58,10 @@ const routes = {
 pagePath = (_path) => {
   const pageProperties = routes[_path];
   const page = pageProperties.page;
+  const file = pageProperties.file;
   return page;
 };
+
 
 
 /**
