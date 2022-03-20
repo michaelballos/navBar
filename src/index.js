@@ -1,5 +1,6 @@
 document.body.setAttribute('id', 'root');
 
+//practice 
 const yourMama = 'total inches in this pussy:';
 const yourMamasHoes = {
   joe: 2,
@@ -7,10 +8,6 @@ const yourMamasHoes = {
   nuts: 1,
 };
 console.log('yourMamasHoes Object:', yourMamasHoes);
-/**
- * iterates object values into an array & logs in console
- *
- */
 const dickSize = Object.values(yourMamasHoes);
 console.log('dickSize Array', dickSize);
 let sum = 0;
@@ -18,7 +15,6 @@ for (i = 0; i < dickSize.length; i++) {
   sum += dickSize[i];
 }
 console.log(yourMama, sum, 'inches');
-
 
 
 const routes = {
@@ -54,11 +50,10 @@ const routes = {
   },
 };
 
-console.log('');
 /**
  * Returns the display name based on navbar route
  * @param {String} _path
- * @returns 
+ * @returns
  */
 pagePath = (_path) => {
   const pageProperties = routes[_path];
@@ -66,28 +61,28 @@ pagePath = (_path) => {
   return page;
 };
 
-console.log(pagePath('/'));
-console.log(pagePath('/about'));
-console.log(pagePath('/docs'));
-console.log(pagePath('/examples'));
 
-//all html in js
 /**
- * can hard code everything but elements that repeat
- * if it repeats "extract it to a constant"
+ * creates navbar html content 
  */
-
-const appendString = (selectById, stringToAppend) => {
-  const selectedId = document.getElementById(selectById);
-  selectedId.insertAdjacentHTML('afterbegin', stringToAppend);
-};
-
 hydrate = () => {
+  /**
+   * inserts html by selecting position by id and the string to insert
+   * @param {string} id selects location to insert by id
+   * @param {string} position selects adjacent position
+   * @param {string} stringToAppend defines the string to insert into html
+   */
+  appendString = (id, position, stringToAppend) => {
+    const selectedId = document.getElementById(id);
+    selectedId.insertAdjacentHTML(position, stringToAppend);
+  };
+
   /**
    * creates static navbar containers
    */
   appendString(
     'root',
+    'afterbegin',
     `
       <nav id="navCntnr">
         <a id="navLogo" href="#">Navbar</a>
@@ -109,120 +104,47 @@ hydrate = () => {
     `
   );
 
+    //creates an array of keys from 'routes'
   const topLevelPaths = Object.keys(routes);
-
-
   /**
-   * creates navbar list items containing routed links
+   * iterates topLevelPaths and creates string[] of linked list items
    * @param {string[]} route top level navbar routes
    * @returns {string[]} list items
    */
-  const links = topLevelPaths.map(route => {
+  const links = topLevelPaths.map((route) => {
     const page = pagePath(route);
-    const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">${page}</a></li>`;
-    console.log(listItem);
+    const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}" onClick="pageRoute()">${page}</a></li>`;
     return listItem;
-  }
-  );
-
-  /**
-   * inserts main links before the drop down menu
-   * @param {string} link - list item containing nav links
-   */
-  links.forEach((link) => {
-    const navCntnr = document.getElementById('drpdwnMnu');
-
-    navCntnr.insertAdjacentHTML('beforebegin', link);
   });
+
+/**
+ * creates top level navigation links
+ * @param {string} link list item containing linked routes
+ */
+  links.forEach((link) => {
+    appendString('drpdwnMnu', 'beforebegin', link);
+  });
+ 
+/**
+ * pushes location into history and url without navigating to it 
+ * @param {string} event captures the click of link 
+ */
+const pageRoute = (event)=> {
+  event = event || window.event;
+  event.preventDefault();
+  window.history.pushState({}, '', event.target.href);
+
 };
+
+window.pageRoute = pageRoute;
+
+
+ };
 hydrate();
 
+
+
 /*
-
-
-
-a = (id, className) => {
-  const string = `
-  <a id="${id}" class="${className}" href="#">Navbar</a>
-  `;
-  createComponent(); 
-  return;
-};
-
-navToggleBtn = (id, className, appendId, insert) => {
-  const string = `
-  <a id="navLogo" href="#">Navbar</a>
-  <button id="${id}" class="${className}">
-    <span id="barTop"></span>  
-    <span id="barMid"></span>  
-    <span id="barBot"></span>  
-  </button> 
-  `;
-  createComponent(); 
-    return;
-};
-
-ul = (id, className) => {
-  const string = `
-  <ul id="${id}" class="${className}"></ul> 
-  `;
-  createComponent(); 
-  return;
-};
-
-li = (displayName) => {
-  const string = `
-    <li class="navItem" href="#">
-      <a class="navLink">
-        ${displayName}
-      </a>
-    </li>
-  `;
-  createComponent(); 
-  return;
-};
- 
-liDropdown = (liName, liSub1, liSub2, liSub3) => {
-  const string = `
-    <li id="navlinkContainer">
-       <a id="dropdownLink" href="#"> ${liName} </a>
-    <div id="dropdownContent">  
-       <a class="dropdownItemLink" href="#"> ${liSub1} </a>
-       <a class="dropdownItemLink" href="#"> ${liSub2} </a>
-    <div class="dropdownDivider"></div>
-       <a class="dropdownItemLink" href="#"> ${liSub3} </a>
-    </li>
-  `;
-  createComponent(); 
- return;
-};
-
-
-searchBar = (appendId, insert) => {
-  const string = `
-    <form id="searchBar">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  `;
-  createComponent(); 
-    return;
-};
-
-div('navbarContainer', 'div', 'root', 'afterbegin');
-/*
-nav('navbar', 'nav', 'navbarContainer', 'afterbegin');
-navToggleBtn('navToggle', 'btn', 'navbar', 'afterbegin');
-div('navDropdownCollapse', 'div', 'navToggle', 'afterend');
-ul('navLinkContainer', 'ul', 'navDropdownCollapse', 'afterend');
-searchBar('navLinkContainer', 'afterend');
-li('Home');
-li('Link');
-liDropdown('Dropdown', 'Action', 'Another action', 'Something else here');
-li('Disabled');
-
-
-
 
 // 1. 
  * 0. Commit changes and push
