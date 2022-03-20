@@ -1,4 +1,4 @@
-
+document.body.setAttribute('id', 'root');
 //practice 
 const yourMama = 'total inches in this pussy:';
 const yourMamasHoes = {
@@ -19,7 +19,6 @@ console.log(yourMama, sum, 'inches');
 const routes = {
   '/': {
     page: 'Home',
-    file: '/index.html',
   },
   '/about': {
     page: 'About',
@@ -39,6 +38,7 @@ const routes = {
   },
   '/examples': {
     page: 'Examples',
+
     routes: {
       '/counter': {
         page: 'Counter',
@@ -57,11 +57,9 @@ const routes = {
  */
 pagePath = (_path) => {
   const pageProperties = routes[_path];
-  const page = pageProperties.page;
-  const file = pageProperties.file;
+  const page = [pageProperties.page];
   return page;
 };
-
 
 
 /**
@@ -113,6 +111,7 @@ hydrate = () => {
    * @param {string[]} route top level navbar routes
    * @returns {string[]} list items
    */
+    console.log('');
   const links = topLevelPaths.map((route) => {
     const page = pagePath(route);
     const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}" onClick="pageRoute()">${page}</a></li>`;
@@ -128,7 +127,7 @@ hydrate = () => {
   });
  
 /**
- * pushes location into history and url without navigating to it 
+ * creates location history and pushed url into search bar without navigating to the link path 
  * @param {string} event captures the click of link 
  */
 const pageRoute = (event)=> {
@@ -137,6 +136,8 @@ const pageRoute = (event)=> {
   window.history.pushState({}, '', event.target.href);
 
 };
+
+
 
 window.pageRoute = pageRoute;
 
