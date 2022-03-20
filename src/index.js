@@ -1,4 +1,26 @@
 document.body.setAttribute('id', 'root');
+
+const yourMama = 'total inches in this pussy:';
+const yourMamasHoes = {
+  joe: 2,
+  ghandi: 9,
+  nuts: 1,
+};
+console.log('yourMamasHoes Object:', yourMamasHoes);
+/**
+ * iterates object values into an array & logs in console
+ *
+ */
+const dickSize = Object.values(yourMamasHoes);
+console.log('dickSize Array', dickSize);
+let sum = 0;
+for (i = 0; i < dickSize.length; i++) {
+  sum += dickSize[i];
+}
+console.log(yourMama, sum, 'inches');
+
+
+
 const routes = {
   '/': {
     page: 'Home',
@@ -32,35 +54,11 @@ const routes = {
   },
 };
 
-const appendString = (selectById, stringToAppend) => {
-  const selectedId = document.getElementById(selectById);
-  selectedId.insertAdjacentHTML('afterbegin', stringToAppend);
-};
-
-const yourMama = 'total inches in this pussy:';
-const yourMamasHoes = {
-  joe: 2,
-  ghandi: 9,
-  nuts: 1,
-};
-console.log('yourMamasHoes Object:', yourMamasHoes);
-/**
- * iterates object values into an array & logs in console
- *
- */
-const dickSize = Object.values(yourMamasHoes);
-console.log('dickSize Array', dickSize);
-let sum = 0;
-for (i = 0; i < dickSize.length; i++) {
-  sum += dickSize[i];
-}
-console.log(yourMama, sum, 'inches');
-
 console.log('');
 /**
  * Returns the display name based on navbar route
- * @param {*} _path
- * @returns
+ * @param {String} _path
+ * @returns 
  */
 pagePath = (_path) => {
   const pageProperties = routes[_path];
@@ -78,6 +76,11 @@ console.log(pagePath('/examples'));
  * can hard code everything but elements that repeat
  * if it repeats "extract it to a constant"
  */
+
+const appendString = (selectById, stringToAppend) => {
+  const selectedId = document.getElementById(selectById);
+  selectedId.insertAdjacentHTML('afterbegin', stringToAppend);
+};
 
 hydrate = () => {
   /**
@@ -107,26 +110,20 @@ hydrate = () => {
   );
 
   const topLevelPaths = Object.keys(routes);
-  console.log(topLevelPaths);
+
 
   /**
    * creates navbar list items containing routed links
    * @param {string[]} route top level navbar routes
    * @returns {string[]} list items
    */
-  const links = topLevelPaths.map((route, i) => {
-    const lowercaseLinkName = route.replace('/', '');
-    const uppercaseLinkName =
-      lowercaseLinkName.charAt(0).toUpperCase() + lowercaseLinkName.slice(1);
-    if (i < 1) {
-      listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">Home</a></li>`;
-      return listItem;
-    } else {
-      const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">${uppercaseLinkName}</a></li>`;
-      return listItem;
-    }
-  });
-  console.log('links:', links);
+  const links = topLevelPaths.map(route => {
+    const page = pagePath(route);
+    const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">${page}</a></li>`;
+    console.log(listItem);
+    return listItem;
+  }
+  );
 
   /**
    * inserts main links before the drop down menu
@@ -136,7 +133,6 @@ hydrate = () => {
     const navCntnr = document.getElementById('drpdwnMnu');
 
     navCntnr.insertAdjacentHTML('beforebegin', link);
-    console.log(navCntnr);
   });
 };
 hydrate();
