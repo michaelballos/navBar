@@ -6,7 +6,7 @@ const routes = {
   '/about': {
     page: 'About',
   },
-  
+
   '/docs': {
     page: 'Documentation',
 
@@ -17,7 +17,7 @@ const routes = {
       '/api-reference': {
         page: 'API Reference',
       },
-    }
+    },
   },
   '/examples': {
     page: 'Examples',
@@ -28,25 +28,16 @@ const routes = {
       '/todo': {
         page: 'Todo',
       },
-    }
+    },
   },
 };
 
 const appendString = (selectById, stringToAppend) => {
   const selectedId = document.getElementById(selectById);
   selectedId.insertAdjacentHTML('afterbegin', stringToAppend);
- };
+};
 
-/**
- * stores 'this pussy' in variable named 'yourMama'
- * variable words: const, let, var
-const yourMama = 'this pussy';
- */
 const yourMama = 'total inches in this pussy:';
-/**
- * @object acts as storage u can access later
- * stores data formatted as key:value in an @object named yourMamasHoes 
- */
 const yourMamasHoes = {
   joe: 2,
   ghandi: 9,
@@ -54,29 +45,27 @@ const yourMamasHoes = {
 };
 console.log('yourMamasHoes Object:', yourMamasHoes);
 /**
- * iterates object values into an array & logs in console 
- * 
+ * iterates object values into an array & logs in console
+ *
  */
 const dickSize = Object.values(yourMamasHoes);
 console.log('dickSize Array', dickSize);
 let sum = 0;
-for(i=0;i<dickSize.length;i++) {
+for (i = 0; i < dickSize.length; i++) {
   sum += dickSize[i];
 }
 console.log(yourMama, sum, 'inches');
 
-
-
 console.log('');
 /**
  * Returns the display name based on navbar route
- * @param {*} _path 
- * @returns 
+ * @param {*} _path
+ * @returns
  */
 pagePath = (_path) => {
   const pageProperties = routes[_path];
-  const page = pageProperties.page; 
-  return page;    
+  const page = pageProperties.page;
+  return page;
 };
 
 console.log(pagePath('/'));
@@ -84,23 +73,19 @@ console.log(pagePath('/about'));
 console.log(pagePath('/docs'));
 console.log(pagePath('/examples'));
 
-
 //all html in js
 /**
  * can hard code everything but elements that repeat
  * if it repeats "extract it to a constant"
-*/
-
-
-
+ */
 
 hydrate = () => {
-  
-/**
- * creates static navbar containers
- */
-   appendString('root',
-     `
+  /**
+   * creates static navbar containers
+   */
+  appendString(
+    'root',
+    `
       <nav id="navContnr">
         <a id="navLogo" href="#">Navbar</a>
           <button id="navTglBtn">
@@ -118,7 +103,8 @@ hydrate = () => {
             </form>
           </div>
       </nav>
-    `);
+    `
+  );
 
   const topLevelPaths = Object.keys(routes);
   console.log(topLevelPaths);
@@ -128,32 +114,32 @@ hydrate = () => {
    * @param {string[]} route top level navbar routes
    * @returns {string[]} list items
    */
-  const links = topLevelPaths.map(route => {
-    const lowercaseLinkName = route.replace('/','');
-    const uppercaseLinkName = lowercaseLinkName.charAt(0).toUpperCase() + lowercaseLinkName.slice(1);
-
-    const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">${uppercaseLinkName}</a></li>`;
-    return listItem;
- });
+  const links = topLevelPaths.map((route, i) => {
+    const lowercaseLinkName = route.replace('/', '');
+    const uppercaseLinkName =
+      lowercaseLinkName.charAt(0).toUpperCase() + lowercaseLinkName.slice(1);
+    if (i < 1) {
+      listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">Home</a></li>`;
+      return listItem;
+    } else {
+     const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}">${uppercaseLinkName}</a></li>`;
+     return listItem;
+    }
+  });
   console.log('links:', links);
-  
-/**
- * inserts main links before the drop down menu  
- * @param {string} link - list item containing nav links
- */
-  links.forEach(link => {
+
+  /**
+   * inserts main links before the drop down menu
+   * @param {string} link - list item containing nav links
+   */
+  links.forEach((link) => {
     const navCntnr = document.getElementById('drpdwnMnu');
+
     navCntnr.insertAdjacentHTML('beforebegin', link);
     console.log(navCntnr);
-  }); 
-
-
-
-   
+  });
 };
 hydrate();
-
-
 
 /*
 
