@@ -15,36 +15,41 @@ for (i = 0; i < dickSize.length; i++) {
 }
 console.log(yourMama, sum, 'inches');
 
-
 const routes = {
-  '/': {
+  '/index.html': {
     page: 'Home',
+    html: `<h1>Welcome Home</h1>`
   },
   '/about': {
     page: 'About',
+    html: `<h1>About</h1>`
   },
 
   '/docs': {
     page: 'Documentation',
-
+    html: `<h1>Documentation Dropdown</h1>`,
     routes: {
       '/getting-started': {
         page: 'Getting Started',
+        html: `<h1>Get Started</h1>`
       },
       '/api-reference': {
         page: 'API Reference',
+        html: `<h1>API Ref</h1>`
       },
     },
   },
   '/examples': {
     page: 'Examples',
-
+    html: `<h1>Examples Dropdown</h1>`,
     routes: {
       '/counter': {
         page: 'Counter',
+        html: `<h1>Counter</h1>`,
       },
       '/todo': {
         page: 'Todo',
+        html: `<h1>To Do</h1>`,
       },
     },
   },
@@ -57,10 +62,9 @@ const routes = {
  */
 pagePath = (_path) => {
   const pageProperties = routes[_path];
-  const page = [pageProperties.page];
+  const page = pageProperties.page;
   return page;
 };
-
 
 /**
  * creates navbar html content 
@@ -101,6 +105,7 @@ hydrate = () => {
         </button>
           </div>
       </nav>
+    <div id="currentPage"></div>
     `
   );
 
@@ -130,20 +135,11 @@ hydrate = () => {
  * creates location history and pushed url into search bar without navigating to the link path 
  * @param {string} event captures the click of link 
  */
-const pageRoute = (event)=> {
-  event = event || window.event;
-  event.preventDefault();
-  window.history.pushState({}, '', event.target.href);
-
-};
-
-
-
-window.pageRoute = pageRoute;
-
 
  };
 hydrate();
+
+
 
 
 
