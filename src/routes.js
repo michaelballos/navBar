@@ -1,19 +1,23 @@
 
-const pageRoute = (event)=> {
+  /**
+   * creates location history and pushed url into search bar without navigating to the link path
+   * @param {string} event captures the click of link
+   */
+const pageRoute = (event) => {
   event = event || window.event;
   event.preventDefault();
   window.history.pushState({}, '', event.target.href);
   handleLocation();
 };
- 
-handleLocation = () => { 
+
+handleLocation = () => {
   const path = window.location.pathname;
-  const pageProperties= routes[path];
-  console.log(pageProperties);
+  const pageProperties = routes[path]; 
   return fetch(pageProperties)
-    .then(pageHTML = pageProperties.html)
+    .then(pageHTML = pageProperties.htmlString)
     .then(data => data.text())
-    .then(document.getElementById('currentPage').innerHTML = pageHTML);
+    .then((document.getElementById('currentPage').innerHTML = pageHTML))
+    .catch(console.log('Fuk U'));
 };
 /*
 function handleLocation(path) {
@@ -25,7 +29,7 @@ const pageHTML = route.html;
  document.getElementById('currentPage').innerHTML = pageHTML;
 };
 */
-  window.onpopstate = handleLocation;
-  window.pageRoute = pageRoute;
+window.onpopstate = handleLocation;
+window.pageRoute = pageRoute;
 
-  handleLocation();
+handleLocation();

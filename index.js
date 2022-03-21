@@ -1,5 +1,5 @@
 document.body.setAttribute('id', 'root');
-//practice 
+//practice
 const yourMama = 'total inches in this pussy:';
 const yourMamasHoes = {
   joe: 2,
@@ -16,58 +16,70 @@ for (i = 0; i < dickSize.length; i++) {
 console.log(yourMama, sum, 'inches');
 
 const routes = {
-  '/index.html': {
+  '/': {
     page: 'Home',
-    html: `<h1>Welcome Home</h1>`
+    url: '/pages/index.html',
+    htmlString: `<h1>Welcome Home</h1>`,
   },
   '/about': {
     page: 'About',
-    html: `<h1>About</h1>`
+    url: '/pages/about.html',
+    htmlString: `<h1>About Page</h1>`,
   },
 
   '/docs': {
     page: 'Documentation',
-    html: `<h1>Documentation Dropdown</h1>`,
+    url: '/pages/docs.html',
+    htmlString: `<h1>Documentation Dropdown</h1>`,
     routes: {
       '/getting-started': {
         page: 'Getting Started',
-        html: `<h1>Get Started</h1>`
+        url: '/pages/getting-started',
+        htmlString: `<h1>Get Started</h1>`,
       },
       '/api-reference': {
         page: 'API Reference',
-        html: `<h1>API Ref</h1>`
+        url: '/pages/api-reference',
+        htmlString: `<h1>API Ref</h1>`,
       },
     },
   },
   '/examples': {
     page: 'Examples',
-    html: `<h1>Examples Dropdown</h1>`,
+    url: '/pages/examples',
+    htmlString: `<h1>Examples Dropdown</h1>`,
     routes: {
       '/counter': {
         page: 'Counter',
-        html: `<h1>Counter</h1>`,
+        url: '/pages/counter',
+        htmlString: `<h1>Counter</h1>`,
       },
       '/todo': {
         page: 'Todo',
-        html: `<h1>To Do</h1>`,
+        url: '/pages/todo',
+        htmlString: `<h1>To Do</h1>`,
       },
     },
   },
 };
 
+
 /**
  * Returns the display name based on navbar route
- * @param {String} _path
+ * @param {String} path
  * @returns
  */
-pagePath = (_path) => {
-  const pageProperties = routes[_path];
+pagePath = (path) => {
+  const pageProperties = routes[path];
+  console.log(pageProperties.url);
   const page = pageProperties.page;
   return page;
 };
 
+  
+
 /**
- * creates navbar html content 
+ * creates navbar html content
  */
 hydrate = () => {
   /**
@@ -105,43 +117,36 @@ hydrate = () => {
         </button>
           </div>
       </nav>
-    <div id="currentPage"></div>
+    <div id="currentPage">
+    </div>
     `
   );
 
-    //creates an array of keys from 'routes'
+  //creates an array of keys from 'routes'
   const topLevelPaths = Object.keys(routes);
+  console.log(topLevelPaths);
   /**
    * iterates topLevelPaths and creates string[] of linked list items
    * @param {string[]} route top level navbar routes
    * @returns {string[]} list items
    */
-    console.log('');
+  console.log('');
   const links = topLevelPaths.map((route) => {
     const page = pagePath(route);
     const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}" onClick="pageRoute()">${page}</a></li>`;
     return listItem;
   });
 
-/**
- * creates top level navigation links
- * @param {string} link list item containing linked routes
- */
+  /**
+   * creates top level navigation links
+   * @param {string} link list item containing linked routes
+   */
   links.forEach((link) => {
     appendString('drpdwnMnu', 'beforebegin', link);
   });
- 
-/**
- * creates location history and pushed url into search bar without navigating to the link path 
- * @param {string} event captures the click of link 
- */
 
- };
+};
 hydrate();
-
-
-
-
 
 /*
 
