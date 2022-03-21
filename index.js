@@ -1,5 +1,6 @@
 document.body.setAttribute('id', 'root');
-//practice
+
+//warmup
 const yourMama = 'total inches in this pussy:';
 const yourMamasHoes = {
   joe: 2,
@@ -15,48 +16,42 @@ for (i = 0; i < dickSize.length; i++) {
 }
 console.log(yourMama, sum, 'inches');
 
+
+
+//actual project code below
 const routes = {
-  '/': {
+  '/index.html': {
     page: 'Home',
-    url: '/pages/index.html',
     htmlString: `<h1>Welcome Home</h1>`,
   },
   '/about': {
     page: 'About',
-    url: '/pages/about.html',
     htmlString: `<h1>About Page</h1>`,
   },
 
   '/docs': {
     page: 'Documentation',
-    url: '/pages/docs.html',
     htmlString: `<h1>Documentation Dropdown</h1>`,
     routes: {
       '/getting-started': {
         page: 'Getting Started',
-        url: '/pages/getting-started',
-        htmlString: `<h1>Get Started</h1>`,
       },
       '/api-reference': {
         page: 'API Reference',
-        url: '/pages/api-reference',
         htmlString: `<h1>API Ref</h1>`,
       },
     },
   },
   '/examples': {
     page: 'Examples',
-    url: '/pages/examples',
     htmlString: `<h1>Examples Dropdown</h1>`,
     routes: {
       '/counter': {
         page: 'Counter',
-        url: '/pages/counter',
         htmlString: `<h1>Counter</h1>`,
       },
       '/todo': {
         page: 'Todo',
-        url: '/pages/todo',
         htmlString: `<h1>To Do</h1>`,
       },
     },
@@ -70,8 +65,8 @@ const routes = {
  * @returns
  */
 pagePath = (path) => {
-  const pageProperties = routes[path];
-  console.log(pageProperties.url);
+  pageProperties = routes[path]; 
+  console.log('page property url:', pageProperties.url);
   const page = pageProperties.page;
   return page;
 };
@@ -124,7 +119,7 @@ hydrate = () => {
 
   //creates an array of keys from 'routes'
   const topLevelPaths = Object.keys(routes);
-  console.log(topLevelPaths);
+  console.log('topLevelPaths:', topLevelPaths);
   /**
    * iterates topLevelPaths and creates string[] of linked list items
    * @param {string[]} route top level navbar routes
@@ -133,7 +128,16 @@ hydrate = () => {
   console.log('');
   const links = topLevelPaths.map((route) => {
     const page = pagePath(route);
-    const listItem = `<li class="navLnkLi"><a class="navLnk" href="${route}" onClick="pageRoute()">${page}</a></li>`;
+    const listItem = `
+      <li class="navLnkLi">
+        <button
+          class="navLnk"
+          onClick="showPage('${route}')"
+        >
+          ${page}
+        </button>
+      </li>
+    `;
     return listItem;
   });
 
