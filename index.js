@@ -142,6 +142,8 @@ const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
    * @returns {string[]} list items
    */
   console.log('');
+
+  topLevelPaths.pop();
   const links = topLevelPaths.map((route) => {
     const page = pageName(route);
    const listItem = `
@@ -175,6 +177,7 @@ const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
 const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
     const page = examplesDrpdwnName(route);
    const listItem = `
+
       <li id="${page}" class="navLnkLi">
         <button
           class="navLnk"
@@ -193,12 +196,23 @@ const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
    * @param {string} link list item containing linked routes
    */
   links.forEach((link) => {
-    appendString('navLnkCntnr', 'afterbegin', link);
+    appendString('navLnkCntnr', 'beforeend', link);
   });
 
 docDrpdwnLnk.forEach((link) => {
   appendString('Documentation', 'beforeend', link)
 });
+
+appendString('Documentation', 'beforeend', `
+ <li id="Examples" class="navLnkLi">
+        <button
+          class="navLnk"
+          onClick="showPage('/examples')"
+        >
+         Examples 
+        </button>
+      </li>
+      `)
 
 examplesDrpdwnLnk.forEach((link) => {
   appendString('Examples', 'beforeend', link)
