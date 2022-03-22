@@ -1,0 +1,23 @@
+
+#navSuppCont {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navLnkCntnr {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.navLnkLi {
+  list-style-type: none;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.navLnk {
+  text-decoration: none;
+}

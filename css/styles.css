@@ -18,12 +18,7 @@ html body {
   padding: 0.5rem 1rem;
 }
 
-#navLnkCntnr {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  padding-left: 0;
-}
+
 
 #navLogo {
   text-decoration: none;
@@ -35,27 +30,13 @@ html body {
   white-space: nowrap;
 }
 
-#navSuppCont {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navLnkLi {
-  list-style-type: none;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.navLnk {
-  text-decoration: none;
-}
 
 #srchCntnr {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin: 0;
+  padding-right: 60px;
 }
 
 #srchBxInpt {
@@ -143,10 +124,13 @@ html body {
 }
 
 #navTglBtn {
-  width: 40px;
+  position: absolute;
+  width: 50px;
   height: 50px;
   background: transparent;
   border: 1px transparent;
+  right: 30px;
+  top: 5px;
 }
 
 #tglHamburger {

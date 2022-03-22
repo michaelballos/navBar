@@ -113,6 +113,8 @@ hydrate = () => {
          <ul id="navLnkCntnr">
         
          </ul> 
+        </div>
+         <div id="rightCont">
          <form id="srchCntnr">
           <input id="srchBxInpt" type="search" placeholder="Search" aria-label="Search">
           <button id="srchBtn" type="submit">Search</button>
