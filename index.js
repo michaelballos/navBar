@@ -57,7 +57,9 @@ const routes = {
 
 
 const docDrpdwnRoutes= routes['/docs'].routes;
+const examplesDrpdwnRoutes = routes['/examples'].routes;
 console.log('docDrpdwm', docDrpdwnRoutes);
+console.log('examplesDrpdwm', examplesDrpdwnRoutes);
 
 /**
  * Returns the display name based on navbar route
@@ -74,7 +76,13 @@ pageName = (path) => {
   const pageProperties = docDrpdwnRoutes[path];
   return  pageProperties.page;
 };
-console.log('test', docDrpdwnName('/api-reference'))
+console.log('doc test name', docDrpdwnName('/api-reference'))
+ 
+examplesDrpdwnName = (path) => {
+  const pageProperties = examplesDrpdwnRoutes[path];
+  return  pageProperties.page;
+};
+console.log('ex test name', examplesDrpdwnName('/counter'))
  
 
 /**
@@ -123,9 +131,11 @@ hydrate = () => {
   //creates an array of keys from 'routes'
   const topLevelPaths = Object.keys(routes);
   const docDrpdwnPaths= Object.keys(routes['/docs'].routes);
-
+const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
   console.log('topLevelPaths:', topLevelPaths);
   console.log('docDrpdwnPaths', docDrpdwnPaths);
+  console.log('examplesDrpdwnPaths', examplesDrpdwnPaths);
+
   /**
    * iterates topLevelPaths and creates string[] of linked list items
    * @param {string[]} route top level navbar routes
@@ -162,7 +172,20 @@ const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
     return listItem;
   });
 
-
+const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
+    const page = examplesDrpdwnName(route);
+   const listItem = `
+      <li id="${page}" class="navLnkLi">
+        <button
+          class="navLnk"
+          onClick="showPage('${route}')"
+        >
+          ${page}
+        </button>
+      </li>
+    `;
+    return listItem;
+  });
 
   
   /**
@@ -176,6 +199,11 @@ const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
 docDrpdwnLnk.forEach((link) => {
   appendString('Documentation', 'beforeend', link)
 });
+
+examplesDrpdwnLnk.forEach((link) => {
+  appendString('Examples', 'beforeend', link)
+});
+
 
 
 };
