@@ -12,7 +12,6 @@ const showPage = (route) => {
 //shows page content by inserting html defined in @object routes 
 showContent = () => {
   const path = window.location.pathname;
-  console.log('path', path);
   pageProperties = routes[path];
   pageHTML = pageProperties.htmlString;
   document.getElementById('currentPage').innerHTML = pageHTML;

@@ -7,14 +7,11 @@ const yourMamasHoes = {
   ghandi: 9,
   nuts: 1,
 };
-console.log('yourMamasHoes Object:', yourMamasHoes);
 const dickSize = Object.values(yourMamasHoes);
-console.log('dickSize Array', dickSize);
 let sum = 0;
 for (i = 0; i < dickSize.length; i++) {
   sum += dickSize[i];
 }
-console.log(yourMama, sum, 'inches');
 
 
 
@@ -31,7 +28,7 @@ const routes = {
 
   '/docs': {
     page: 'Documentation',
-    htmlString: `<h1>Documentation Dropdown</h1>`,
+    htmlString: `<h1>Doc</h1>`,
     routes: {
       '/getting-started': {
         page: 'Getting Started',
@@ -59,19 +56,26 @@ const routes = {
 };
 
 
+const docDrpdwnRoutes= routes['/docs'].routes;
+console.log('docDrpdwm', docDrpdwnRoutes);
+
 /**
  * Returns the display name based on navbar route
  * @param {String} path
  * @returns
  */
-pagePath = (path) => {
-  pageProperties = routes[path]; 
-  console.log('page property url:', pageProperties.url);
+pageName = (path) => {
+ const pageProperties = routes[path]; 
   const page = pageProperties.page;
   return page;
 };
 
-  
+ docDrpdwnName = (path) => {
+  const pageProperties = docDrpdwnRoutes[path];
+  return  pageProperties.page;
+};
+console.log('test', docDrpdwnName('/api-reference'))
+ 
 
 /**
  * creates navbar html content
@@ -99,9 +103,7 @@ hydrate = () => {
         <a id="navLogo" href="#">Navbar</a>
         <div id="navSuppCont">
          <ul id="navLnkCntnr">
-
-         <div id="drpdwnMnu">
-         </div>
+        
          </ul> 
          <form id="srchCntnr">
           <input id="srchBxInpt" type="search" placeholder="Search" aria-label="Search">
@@ -113,13 +115,17 @@ hydrate = () => {
           </div>
       </nav>
     <div id="currentPage">
+
     </div>
     `
   );
 
   //creates an array of keys from 'routes'
   const topLevelPaths = Object.keys(routes);
+  const docDrpdwnPaths= Object.keys(routes['/docs'].routes);
+
   console.log('topLevelPaths:', topLevelPaths);
+  console.log('docDrpdwnPaths', docDrpdwnPaths);
   /**
    * iterates topLevelPaths and creates string[] of linked list items
    * @param {string[]} route top level navbar routes
@@ -127,9 +133,9 @@ hydrate = () => {
    */
   console.log('');
   const links = topLevelPaths.map((route) => {
-    const page = pagePath(route);
-    const listItem = `
-      <li class="navLnkLi">
+    const page = pageName(route);
+   const listItem = `
+      <li id="${page}" class="navLnkLi">
         <button
           class="navLnk"
           onClick="showPage('${route}')"
@@ -141,13 +147,36 @@ hydrate = () => {
     return listItem;
   });
 
+const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
+    const page = docDrpdwnName(route);
+   const listItem = `
+      <li id="${page}" class="navLnkLi">
+        <button
+          class="navLnk"
+          onClick="showPage('${route}')"
+        >
+          ${page}
+        </button>
+      </li>
+    `;
+    return listItem;
+  });
+
+
+
+  
   /**
    * creates top level navigation links
    * @param {string} link list item containing linked routes
    */
   links.forEach((link) => {
-    appendString('drpdwnMnu', 'beforebegin', link);
+    appendString('navLnkCntnr', 'afterbegin', link);
   });
+
+docDrpdwnLnk.forEach((link) => {
+  appendString('Documentation', 'beforeend', link)
+});
+
 
 };
 hydrate();
