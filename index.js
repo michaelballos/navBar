@@ -209,6 +209,7 @@ docDrpdwnLnk.forEach((link) => {
 });
 
 appendString('Documentation', 'beforeend', `
+<div id="drpdwnLine"></div>
  <li id="Examples" class="drpdwnLnkLi">
         <button
           class="navLnk"

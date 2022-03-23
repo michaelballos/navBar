@@ -9,53 +9,63 @@
   flex-flow: row wrap;
 }
 
+
 .navLnkLi {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   list-style-type: none;
-  padding-right: 0.2rem;
+  padding-right: 0.6rem;
   padding-top: 0.5rem;
 }
 
 .navLnk {
   background-color: transparent;
-  border-size: 1px;
+  width: 10rem;
+  border-radius: .8rem;
   border-color: transparent;
   text-decoration: none;
-  width: 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   font-size: 1.25rem;
 }
 
-.drpdwnLnkLi {
-  position: relative;
-  display: block;
-}
-
-.drpdwnLnk { 
-  position: absolute;
-  border-size: 1px;
-  border-color: transparent;
-  text-decoration: none;
-  background-color: transparent;
-  right: 30px;
+.navLnk:hover {
+  background-color:  rgb(197, 197, 197);
 }
 
 #Documentation {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  padding-top: 8px;
+  padding-right: 15px;
   align-items: center;
-  padding-right: 3.5rem;
-  padding-left: 2rem;
+}
+
+
+
+.drpdwnLnkLi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .drpdwnLnk {
-  position: absolute;
-  top: 70;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  width: 8rem;
+  border-radius: 3rem;
+  border-color: transparent;
+  font-size: 15px;
 }
 
-#Examples {
-  position: absolute;
-  top: 90px;
-
+.drpdwnLnk:hover {
+  background-color: rgb(197, 197, 197);
 }
+
+#drpdwnLine {
+  height: 2px;
+  width: 8rem;
+  background-color: black;
+}
+
