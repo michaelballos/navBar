@@ -10,9 +10,15 @@ html body {
 }
 
 #navCntnr {
+  position: absolute;
+  background-color: rgba(214, 214, 214, 0.4);
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: black;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
+  height: 56px;
   width: 100%;
   padding: 0.5rem 1rem;
 }
@@ -33,7 +39,7 @@ html body {
   justify-content: flex-start;
   width: 100%;
   padding: 0;
-  padding-top: 15px;
+  padding-top: 6px;
 }
 
 #srchCntnr {

@@ -63,6 +63,21 @@
   background-color: rgb(197, 197, 197);
 }
 
+
+
+
+#drpdwnBckgrnd {
+  position: absolute;
+  height: 5rem;
+  margin: 0;
+  padding: 0;
+  width: 90rem;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(180, 180, 180, 0.6);
+}
+
+
 #drpdwnLine {
   height: 2px;
   width: 8rem;
