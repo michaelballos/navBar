@@ -2,22 +2,60 @@
 #navSuppCont {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #navLnkCntnr {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
 }
 
 .navLnkLi {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   list-style-type: none;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: 0.2rem;
+  padding-top: 0.5rem;
 }
 
 .navLnk {
+  background-color: transparent;
+  border-size: 1px;
+  border-color: transparent;
   text-decoration: none;
+  width: 8rem;
+  font-size: 1.25rem;
+}
+
+.drpdwnLnkLi {
+  position: relative;
+  display: block;
+}
+
+.drpdwnLnk { 
+  position: absolute;
+  border-size: 1px;
+  border-color: transparent;
+  text-decoration: none;
+  background-color: transparent;
+  right: 30px;
+}
+
+#Documentation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 3.5rem;
+  padding-left: 2rem;
+}
+
+.drpdwnLnk {
+  position: absolute;
+  top: 70;
+}
+
+#Examples {
+  position: absolute;
+  top: 90px;
+
 }

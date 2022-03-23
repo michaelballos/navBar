@@ -10,33 +10,42 @@ html body {
 }
 
 
+
+
+
 #navCntnr {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   padding: 0.5rem 1rem;
 }
 
 
 
+#logo {
+  position: absolute;
+  left: 1.0999999999999996rem;
+  }
+
 #navLogo {
   text-decoration: none;
-  padding-top: 0.6rem;
-  padding-bottom: 0.5rem;
-  margin-right: 1rem;
+  color: black;
   font-size: 1.5rem;
-  line-height: inherit;
-  white-space: nowrap;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0;
+  padding-top: 15px;
 }
-
 
 #srchCntnr {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   margin: 0;
-  padding-right: 60px;
+  padding-right: 80px;
 }
 
 #srchBxInpt {
@@ -135,4 +144,9 @@ html body {
 
 #tglHamburger {
   padding-left: 15px;
+}
+
+#currentPage {
+  position: absolute;
+  top: 70px;
 }

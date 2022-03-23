@@ -76,13 +76,13 @@ pageName = (path) => {
   const pageProperties = docDrpdwnRoutes[path];
   return  pageProperties.page;
 };
-console.log('doc test name', docDrpdwnName('/api-reference'))
+console.log('doc test name', docDrpdwnName('/api-reference'));
  
 examplesDrpdwnName = (path) => {
   const pageProperties = examplesDrpdwnRoutes[path];
   return  pageProperties.page;
 };
-console.log('ex test name', examplesDrpdwnName('/counter'))
+console.log('ex test name', examplesDrpdwnName('/counter'));
  
 
 /**
@@ -107,8 +107,11 @@ hydrate = () => {
     'root',
     'afterbegin',
     `
+
       <nav id="navCntnr">
+    <div id="logo">
         <a id="navLogo" href="#">Navbar</a>
+    </div>
         <div id="navSuppCont">
          <ul id="navLnkCntnr">
         
@@ -164,9 +167,9 @@ const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
 const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
     const page = docDrpdwnName(route);
    const listItem = `
-      <li id="${page}" class="navLnkLi">
+      <li id="${page}" class="drpdwnLnkLi">
         <button
-          class="navLnk"
+          class="drpdwnLnk"
           onClick="showPage('${route}')"
         >
           ${page}
@@ -180,9 +183,9 @@ const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
     const page = examplesDrpdwnName(route);
    const listItem = `
 
-      <li id="${page}" class="navLnkLi">
+      <li id="${page}" class="drpdwnLnkLi">
         <button
-          class="navLnk"
+          class="drpdwnLnk"
           onClick="showPage('${route}')"
         >
           ${page}
@@ -202,11 +205,11 @@ const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
   });
 
 docDrpdwnLnk.forEach((link) => {
-  appendString('Documentation', 'beforeend', link)
+  appendString('Documentation', 'beforeend', link);
 });
 
 appendString('Documentation', 'beforeend', `
- <li id="Examples" class="navLnkLi">
+ <li id="Examples" class="drpdwnLnkLi">
         <button
           class="navLnk"
           onClick="showPage('/examples')"
@@ -214,10 +217,10 @@ appendString('Documentation', 'beforeend', `
          Examples 
         </button>
       </li>
-      `)
+      `);
 
 examplesDrpdwnLnk.forEach((link) => {
-  appendString('Examples', 'beforeend', link)
+  appendString('Examples', 'beforeend', link);
 });
 
 
