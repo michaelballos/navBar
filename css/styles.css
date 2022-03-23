@@ -48,6 +48,7 @@ html body {
   justify-content: flex-end;
   margin: 0;
   padding-right: 80px;
+  padding-left: 30px;
 }
 
 #srchBxInpt {

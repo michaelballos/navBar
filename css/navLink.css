@@ -37,7 +37,13 @@
   flex-direction: column; 
   padding-top: 8px;
   padding-right: 15px;
+  padding-left: 15px;
   align-items: center;
+height: 10rem;
+  background-color: rgb(235, 235, 235);
+  border-style: solid;
+  border-radius: 1rem;
+  border-color: rgba(8, 8, 8, 0.25) 
 }
 
 
@@ -63,24 +69,33 @@
   background-color: rgb(197, 197, 197);
 }
 
-
-
-
-#drpdwnBckgrnd {
-  position: absolute;
-  height: 5rem;
-  margin: 0;
-  padding: 0;
-  width: 90rem;
-  top: 0px;
-  left: 0px;
-  background-color: rgba(180, 180, 180, 0.6);
-}
-
-
 #drpdwnLine {
-  height: 2px;
-  width: 8rem;
-  background-color: black;
+  position: absolute;
+  height: px;
+  top: 8rem;
+  width: 12.5rem;
+  right: 24.6rem;
+  
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
+#Examples {
+  position: absolute;
+  top: 7.25rem;
+}
+
+#Counter {
+position: absolute;
+left: 12rem;
+bottom: 2px;
+}
+
+#Todo {
+  position: absolute;
+  left: 20rem;
+  bottom: 2px;
+}
+
+#Examples {
+
+}

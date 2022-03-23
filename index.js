@@ -25,6 +25,19 @@ const routes = {
     page: 'About',
     htmlString: `<h1>About Page</h1>`,
   },
+  '/about2': {
+    page: 'About2',
+    htmlString: `<h1>About Page</h1>`,
+    routes: {
+      '/getting-started': {
+        page: 'Getting Started',
+      },
+      '/api-reference': {
+        page: 'API Reference',
+        htmlString: `<h1>API Ref</h1>`,
+      },
+    },
+  },
 
   '/docs': {
     page: 'Documentation',
