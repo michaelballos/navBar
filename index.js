@@ -44,8 +44,8 @@ const examplesDrpdwnRoutes = routes['/examples'].routes;
 
 /**
  * Returns the display name based on navbar route
- * @param {String} path
- * @returns
+ * @param {String} path - route path
+ * @returns page name
  */
 pageName = (path) => {
   const pageProperties = routes[path];
@@ -53,12 +53,21 @@ pageName = (path) => {
   return page;
 };
 
+/**
+ * returns docs inner route dropdoown name
+ * @param {String} path - route path
+ *@returns page name 
+ */
 docDrpdwnName = (path) => {
   const pageProperties = docDrpdwnRoutes[path];
   return pageProperties.page;
 };
-console.log('doc test name', docDrpdwnName('/api-reference'));
 
+/**
+ * returns examples inner route dropdoown name
+ * @param {String} path - route path
+ * @returns page name
+ */
 examplesDrpdwnName = (path) => {
   const pageProperties = examplesDrpdwnRoutes[path];
   return pageProperties.page;
