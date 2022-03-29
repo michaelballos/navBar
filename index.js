@@ -1,6 +1,6 @@
 document.body.setAttribute('id', 'root');
 
-//pagre routing
+//page routing
 const routes = {
   '/index.html': {
     page: 'Home',
@@ -72,7 +72,6 @@ examplesDrpdwnName = (path) => {
   const pageProperties = examplesDrpdwnRoutes[path];
   return pageProperties.page;
 };
-console.log('ex test name', examplesDrpdwnName('/counter'));
 
 /**
  * creates navbar html content
@@ -90,7 +89,7 @@ hydrate = () => {
   };
 
   /**
-   * creates static navbar containers
+   * creates and appends static navbar containers
    */
   appendString(
     'root',
@@ -128,17 +127,12 @@ hydrate = () => {
   const topLevelPaths = Object.keys(routes);
   const docDrpdwnPaths = Object.keys(routes['/docs'].routes);
   const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
-  console.log('topLevelPaths:', topLevelPaths);
-  console.log('docDrpdwnPaths', docDrpdwnPaths);
-  console.log('examplesDrpdwnPaths', examplesDrpdwnPaths);
 
   /**
    * iterates topLevelPaths and creates string[] of linked list items
    * @param {string[]} route top level navbar routes
-   * @returns {string[]} list items
+   * @returns {string[]} list items for top level navbar
    */
-  console.log('');
-
   topLevelPaths.pop();
   const links = topLevelPaths.map((route) => {
     const page = pageName(route);
@@ -155,6 +149,11 @@ hydrate = () => {
     return listItem;
   });
 
+  /**
+   * iterates docDrpdwnPaths and creates string[] of linked list items
+   * @param {string[]} route doc drop down Paths
+   * @returns {string[]} list items for docDrpdwn
+   */
   const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
     const page = docDrpdwnName(route);
     const listItem = `
@@ -170,6 +169,11 @@ hydrate = () => {
     return listItem;
   });
 
+  /**
+   * iterates examplesDrpdwnPaths and creates string[] of linked list items
+   * @param {string[]} route examples Dropdown Paths
+   * @returns {string[]} list items for examplesDrpdwn
+   */
   const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
     const page = examplesDrpdwnName(route);
     const listItem = `
@@ -187,7 +191,7 @@ hydrate = () => {
   });
 
   /**
-   * creates top level navigation links
+   * creates top level navigation links and appends to navbar
    * @param {string} link list item containing linked routes
    */
   links.forEach((link) => {
@@ -218,43 +222,5 @@ hydrate = () => {
     appendString('Examples', 'beforeend', link);
   });
 };
+
 hydrate();
-
-/*
-
-// 1. 
- * 0. Commit changes and push
- * 
- * 1. Extract the append logic to helper function called createComponent
- * 
- * 1.5. Commit changes and push
- * 
- * 2. Instead of taking append id parameter or hard coding the append id,
- * write a function called hydrate that would look something like
- *
- * function hydrate() {
- *   const topLevelPaths = Object.keys(routes)
- *   
- *   setup(staticIDs);
- *   populateNavbar(topLevelPaths); 
- * }
- * ```
- * 
- * > Write [jsdoc](https://devhints.io/jsdoc) style docstrings for all functions
- * 
- * > Make sure to annotate before each append what it is for e.g.
- * > ```
- * >   /**
- * >    * Creates the list item for a NavItem component
- * >    *\/
- * >   li(currenDisplayName);
- * > ```
- * 
- * 2.5. Commit changes and push
- * 
- * 3. Instead of hard coding calls to li, loop over the routes object inside `populateNavbar`
- * 
- * 4. Commit changes and push
- * 
- * 5. Format the file with [prettier](https://prettier.io/docs/en/install.html) 
- */
