@@ -13,7 +13,7 @@ const showPage = (route) => {
 showContent = () => {
   const path = window.location.pathname;
   pageProperties = routes[path];
-  pageHTML = pageProperties.htmlString;
+  pageHTML = pageProperties.htmlString; 
   document.getElementById('currentPage').innerHTML = pageHTML;
 };
 window.onpopstate = showContent;

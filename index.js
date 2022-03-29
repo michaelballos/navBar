@@ -98,7 +98,7 @@ hydrate = () => {
       <nav id="navCntnr">
 
     <div id="logo">
-        <a id="navLogo" href="#">Navbar</a>
+        <a id="navLogo" src='https://github.com/michaelballos/navBar/blob/main/index.js'>Repository</a>
     </div>
         <div id="navSuppCont">
          <ul id="navLnkCntnr">
