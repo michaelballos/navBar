@@ -1,21 +1,6 @@
 document.body.setAttribute('id', 'root');
 
-//warmup
-const yourMama = 'total inches in this pussy:';
-const yourMamasHoes = {
-  joe: 2,
-  ghandi: 9,
-  nuts: 1,
-};
-const dickSize = Object.values(yourMamasHoes);
-let sum = 0;
-for (i = 0; i < dickSize.length; i++) {
-  sum += dickSize[i];
-}
-
-
-
-//actual project code below
+//pagre routing
 const routes = {
   '/index.html': {
     page: 'Home',
@@ -25,20 +10,6 @@ const routes = {
     page: 'About',
     htmlString: `<h1>About Page</h1>`,
   },
-  '/about2': {
-    page: 'About2',
-    htmlString: `<h1>About Page</h1>`,
-    routes: {
-      '/getting-started': {
-        page: 'Getting Started',
-      },
-      '/api-reference': {
-        page: 'API Reference',
-        htmlString: `<h1>API Ref</h1>`,
-      },
-    },
-  },
-
   '/docs': {
     page: 'Documentation',
     htmlString: `<h1>Doc</h1>`,
@@ -68,11 +39,8 @@ const routes = {
   },
 };
 
-
-const docDrpdwnRoutes= routes['/docs'].routes;
+const docDrpdwnRoutes = routes['/docs'].routes;
 const examplesDrpdwnRoutes = routes['/examples'].routes;
-console.log('docDrpdwm', docDrpdwnRoutes);
-console.log('examplesDrpdwm', examplesDrpdwnRoutes);
 
 /**
  * Returns the display name based on navbar route
@@ -80,23 +48,22 @@ console.log('examplesDrpdwm', examplesDrpdwnRoutes);
  * @returns
  */
 pageName = (path) => {
- const pageProperties = routes[path]; 
+  const pageProperties = routes[path];
   const page = pageProperties.page;
   return page;
 };
 
- docDrpdwnName = (path) => {
+docDrpdwnName = (path) => {
   const pageProperties = docDrpdwnRoutes[path];
-  return  pageProperties.page;
+  return pageProperties.page;
 };
 console.log('doc test name', docDrpdwnName('/api-reference'));
- 
+
 examplesDrpdwnName = (path) => {
   const pageProperties = examplesDrpdwnRoutes[path];
-  return  pageProperties.page;
+  return pageProperties.page;
 };
 console.log('ex test name', examplesDrpdwnName('/counter'));
- 
 
 /**
  * creates navbar html content
@@ -150,8 +117,8 @@ hydrate = () => {
 
   //creates an array of keys from 'routes'
   const topLevelPaths = Object.keys(routes);
-  const docDrpdwnPaths= Object.keys(routes['/docs'].routes);
-const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
+  const docDrpdwnPaths = Object.keys(routes['/docs'].routes);
+  const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
   console.log('topLevelPaths:', topLevelPaths);
   console.log('docDrpdwnPaths', docDrpdwnPaths);
   console.log('examplesDrpdwnPaths', examplesDrpdwnPaths);
@@ -166,7 +133,7 @@ const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
   topLevelPaths.pop();
   const links = topLevelPaths.map((route) => {
     const page = pageName(route);
-   const listItem = `
+    const listItem = `
       <li id="${page}" class="navLnkLi">
         <button
           class="navLnk"
@@ -179,9 +146,9 @@ const examplesDrpdwnPaths = Object.keys(routes['/examples'].routes);
     return listItem;
   });
 
-const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
+  const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
     const page = docDrpdwnName(route);
-   const listItem = `
+    const listItem = `
       <li id="${page}" class="drpdwnLnkLi">
         <button
           class="drpdwnLnk"
@@ -194,9 +161,9 @@ const docDrpdwnLnk = docDrpdwnPaths.map((route) => {
     return listItem;
   });
 
-const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
+  const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
     const page = examplesDrpdwnName(route);
-   const listItem = `
+    const listItem = `
 
       <li id="${page}" class="drpdwnLnkLi">
         <button
@@ -210,7 +177,6 @@ const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
     return listItem;
   });
 
-  
   /**
    * creates top level navigation links
    * @param {string} link list item containing linked routes
@@ -219,11 +185,14 @@ const examplesDrpdwnLnk = examplesDrpdwnPaths.map((route) => {
     appendString('navLnkCntnr', 'beforeend', link);
   });
 
-docDrpdwnLnk.forEach((link) => {
-  appendString('Documentation', 'beforeend', link);
-});
+  docDrpdwnLnk.forEach((link) => {
+    appendString('Documentation', 'beforeend', link);
+  });
 
-appendString('Documentation', 'beforeend', `
+  appendString(
+    'Documentation',
+    'beforeend',
+    `
 <div id="drpdwnLine"></div>
  <li id="Examples" class="drpdwnLnkLi">
         <button
@@ -233,14 +202,12 @@ appendString('Documentation', 'beforeend', `
          Examples 
         </button>
       </li>
-      `);
+      `
+  );
 
-examplesDrpdwnLnk.forEach((link) => {
-  appendString('Examples', 'beforeend', link);
-});
-
-
-
+  examplesDrpdwnLnk.forEach((link) => {
+    appendString('Examples', 'beforeend', link);
+  });
 };
 hydrate();
 
