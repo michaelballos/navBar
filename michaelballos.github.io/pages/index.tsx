@@ -12,8 +12,6 @@ const HomePage = () => {
       <ParallaxPlain />
       <div className={'info'}>
         <FirstName />  
-      </div>
-      <div className={'contactInfo'}>
         <ContactInfo /> 
       </div>
       <ParallaxPlain  />

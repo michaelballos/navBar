@@ -1,0 +1,41 @@
+.contactInfo {
+    position: absolute;
+    width: 100%;
+    bottom: -83.5rem;
+}
+
+.buttons {
+    display: flex;
+    bottom: 0;
+    justify-content: space-around;
+    background-color: black;
+    padding: 1rem;
+}
+
+.text {
+    position: absolute;
+    bottom: 5rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.btn {
+    width: 15rem;
+    height: 3rem;
+    border-radius: 3rem;
+}
+
+
+/*
+.phone {
+    margin-left: 32rem;
+}
+
+.email {
+    margin-left: 72rem;
+}
+
+.twitter {
+    margin-left: 112rem;
+}
+*/

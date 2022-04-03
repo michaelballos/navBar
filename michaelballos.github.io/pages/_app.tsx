@@ -6,6 +6,7 @@ import './../css/parallax.css';
 import './../css/info.css';
 import './../css/pageborder.css';
 import './../css/ICanWrite.css';
+import './../css/ContactInfo.css';
 
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
