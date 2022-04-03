@@ -15,7 +15,7 @@ const ContactInfo = () => {
         Phone 
       </Button>
       <Collapse in={openedPhone}>
-        <a className='text'>
+        <a className='phoneNumber'>
           (316)-226-2223
         </a> 
       </Collapse>
@@ -25,7 +25,7 @@ const ContactInfo = () => {
         Email 
       </Button>
       <Collapse in={openedEmail}>
-        <a className='text'>
+        <a className='gmail'>
           ballos.michael@gmail.com
         </a> 
       </Collapse>
@@ -35,7 +35,7 @@ const ContactInfo = () => {
         Twitter 
       </Button>
       <Collapse in={openedTwitter}>
-        <a className='text'>
+        <a className='twitterHandle'>
           @michael_ballos
         </a> 
       </Collapse>

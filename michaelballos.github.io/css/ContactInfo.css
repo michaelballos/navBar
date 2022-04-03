@@ -1,41 +1,47 @@
 .contactInfo {
     position: absolute;
-    width: 100%;
-    bottom: -83.5rem;
-}
-
-.buttons {
-    display: flex;
-    bottom: 0;
-    justify-content: space-around;
-    background-color: black;
-    padding: 1rem;
-}
-
-.text {
-    position: absolute;
-    bottom: 5rem;
-    font-size: 3rem;
-    color: white;
+    bottom: -60rem;
 }
 
 .btn {
     width: 15rem;
-    height: 3rem;
-    border-radius: 3rem;
+    border-radius: 4rem;
+    font-size: 2rem;
+    height: 4rem;
 }
 
-
-/*
 .phone {
+    position: absolute;
     margin-left: 32rem;
 }
 
 .email {
+    position: absolute;
     margin-left: 72rem;
 }
 
 .twitter {
+    position: absolute;
     margin-left: 112rem;
 }
-*/
+
+.phoneNumber,
+.gmail,
+.twitterHandle {
+    position: absolute;
+    top: -5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.phoneNumber {
+    margin-left: 1.25rem;
+}
+
+.gmail {
+    position: absolute;
+    margin-left: -2.59rem;
+    top: -5rem;
+    font-size: 2rem;
+    color: white;
+}

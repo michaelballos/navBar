@@ -9,12 +9,13 @@ const HomePage = () => {
   return (
     <>
     <div className={'container'}>
-      <ParallaxPlain />
+      <ParallaxPlain  />
       <div className={'info'}>
         <FirstName />  
         <ContactInfo /> 
       </div>
       <ParallaxPlain  />
+      <ICanWrite />
       <ParallaxTechVaporwave />
     </div>
     </>
