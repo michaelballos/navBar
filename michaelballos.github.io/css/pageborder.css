@@ -1,0 +1,14 @@
+* {
+    background-color: transparent;
+}
+
+.right,
+.left,
+.top,
+.bottom {
+    background-color: black;
+}
+
+.left {
+    height: 2307px;
+}
