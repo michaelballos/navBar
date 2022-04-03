@@ -15,7 +15,14 @@ const HomePage = () => {
         <ContactInfo /> 
       </div>
       <ParallaxPlain  />
+      
       <ICanWrite />
+      <div className={'laserContainer'}>
+      <div className={'laser'} />
+      </div>
+      <div className={'leftBorder'} />
+      <div className={'rightBorder'} />
+      <div className={'bottomBorder'} />
       <ParallaxTechVaporwave />
     </div>
     </>
