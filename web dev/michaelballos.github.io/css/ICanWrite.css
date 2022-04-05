@@ -1,35 +1,32 @@
-/*
 .content {
+    top: 25rem;
+    width: 100vw;
+    height: 30vh;
     position: absolute;
-    width: 40rem;
-    height: 30rem;
-    bottom: -140rem;
-    left: 60rem;
-    background-color: rgba(0, 4, 4, 0.779);
 }
 
 .slider-wrapper {
-    margin-top: 13rem;
-    font-size: 40px;
-    color: rgb(255, 255, 255);
+    font-size: 2vw;
+    width: 35vw;
+    height: 25vh;
     font-weight: bold;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .slider {
-    height: 50px;
-    padding-left: 15px;
+    height: 7vh;
+    padding-left: 1vw;
     overflow: hidden;
+    color: white;
 }
 
 .slider div {
     color: rgb(255, 255, 255);
-    height: 50px;
-    margin-bottom: 50px;
-    padding: 2px 15px;
+    height: 7vh;
     text-align: center;
     box-sizing: border-box;
 }
@@ -74,4 +71,3 @@
         margin-top: 0px;
     }
 }
-*/

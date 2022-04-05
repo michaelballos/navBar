@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 const ICanWrite: FC = () => {
   return (
-    <div className="content">
+    <div className='content'>
       <div className="slider-wrapper">
         I can write
         <div className="slider">
