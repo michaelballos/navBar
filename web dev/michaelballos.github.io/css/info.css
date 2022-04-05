@@ -2,7 +2,7 @@
     position: absolute;
     top: 10rem;
     width: 100vw;
-    height: 25vh;
+    height: 15vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,25 +19,10 @@
     align-items: center;
 }
 
-
-/*
 .FirstName {
-    position: absolute;
-    bottom: -55rem;
-    left: 34rem;
+    animation: fadeInLeft 1.5s;
 }
 
 .LastName {
-    position: absolute;
-    bottom: -55rem;
-    right: 50rem;
+    animation: fadeInRight 1.5s;
 }
-
-.crawlingFace {
-    position: absolute;
-    width: 100%;
-    height: 950px;
-    left: 3rem;
-    top: 150rem;
-}
-*/

@@ -1,49 +1,39 @@
-/*
-.contactInfo {
+.contactInfoContainer {
     position: absolute;
-    bottom: -60rem;
+    padding-left: 30vw;
+    width: 100vh;
+    height: 15vh;
+    flex-direction: row;
+    top: 25rem;
+}
+
+.contactButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 15vh;
 }
 
 .btn {
-    width: 15rem;
-    border-radius: 4rem;
-    font-size: 2rem;
-    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 8vw;
+    height: 5vh;
+    border-radius: 4vw;
+    font-size: 1vw;
+    height: 4vh;
 }
 
-.phone {
-    position: absolute;
-    margin-left: 32rem;
-}
-
-.email {
-    position: absolute;
-    margin-left: 72rem;
-}
-
+.phone,
+.email,
 .twitter {
-    position: absolute;
-    margin-left: 112rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 15vh;
 }
-
-.phoneNumber,
-.gmail,
-.twitterHandle {
-    position: absolute;
-    top: -5rem;
-    font-size: 2rem;
-    color: white;
-}
-
-.phoneNumber {
-    margin-left: 1.25rem;
-}
-
-.gmail {
-    position: absolute;
-    margin-left: -2.59rem;
-    top: -5rem;
-    font-size: 2rem;
-    color: white;
-}
-*/

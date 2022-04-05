@@ -1,45 +1,20 @@
-import React, { useState } from 'react'
-import { Button, Collapse } from '@mantine/core'
+import React from 'react'
 
 const ContactInfo: React.FC = () => {
-  const [openedPhone, setOpenPhone] = useState(false)
-  const [openedEmail, setOpenEmail] = useState(false)
-  const [openedTwitter, setOpenTwitter] = useState(false)
-
   return (
     <>
-      <div className={'contactInfo'}>
-        <div className={'buttons'}>
-          <div className={'phone'}>
-            <Button className={'btn btnPhone'} onClick={() => setOpenPhone((o) => !o)}>
-              Phone
-            </Button>
-            <Collapse in={openedPhone}>
-              <a className='phoneNumber'>
-                (316)-226-2223
-              </a>
-            </Collapse>
-          </div>
-          <div className={'email'}>
-            <Button className={'btn btnEmail'} onClick={() => setOpenEmail((o) => !o)}>
-              Email
-            </Button>
-            <Collapse in={openedEmail}>
-              <a className='gmail'>
-                ballos.michael@gmail.com
-              </a>
-            </Collapse>
-          </div>
-          <div className={'twitter'}>
-            <Button className={'btn btnTwitter'} onClick={() => setOpenTwitter((o) => !o)}>
-              Twitter
-            </Button>
-            <Collapse in={openedTwitter}>
-              <a className='twitterHandle'>
-                @michael_ballos
-              </a>
-            </Collapse>
-          </div>
+      <div className='contactButtons'>
+        <div className='phone'>
+          Phone
+          <a href='tel:3162262223' className='phoneNumber' />
+        </div>
+        <div className='email'>
+          Email
+          <a href='mailto:ballos.michael@gmail.com' className='gmail' />
+        </div>
+        <div className='twitter'>
+          Twitter
+          <a href='https://twitter.com/michael_ballos' className='twitterHandle' />
         </div>
       </div>
     </>
