@@ -1,8 +1,9 @@
-const ParallaxTechVaporwave = () => {
+import React from 'react'
+
+const ParallaxTechVaporwave: React.FC = () => {
   return (
-   <div className={"ParallaxTechVaporwave"} />
+    <div className={'ParallaxTechVaporwave'} />
   )
 }
 
-
-export default ParallaxTechVaporwave;
+export default ParallaxTechVaporwave

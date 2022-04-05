@@ -1,14 +1,14 @@
+import React from 'react'
 
-const PageBorder = () => {
+const PageBorder: React.FC = () => {
   return (
     <>
-    <div className={'top'}></div>
-    <div className={'bottom'}></div>
-    <div className={'right'}></div>
-    <div className={'left'}></div>
+      <div className={'top'}></div>
+      <div className={'bottom'}></div>
+      <div className={'right'}></div>
+      <div className={'left'}></div>
     </>
   )
 }
 
-
-export default PageBorder;
+export default PageBorder

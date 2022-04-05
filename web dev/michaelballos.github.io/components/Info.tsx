@@ -1,16 +1,11 @@
-import { Title } from '@mantine/core'; 
-import { Head } from 'next/document';
+import React from 'react'
 
-const Info = () => {
-
+const Info: React.FC = () => {
   return (
-    <>
     <div className={'info'}>
       <div className={'contactInfo'} />
     </div>
-    </>
   )
 }
 
-
-export default Info;
+export default Info

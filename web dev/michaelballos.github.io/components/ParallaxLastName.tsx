@@ -1,15 +1,16 @@
-import LastName from "./LastName";
-import FirstName from "./FirstName";
+import React from 'react'
+import LastName from './LastName'
+import FirstName from './FirstName'
 
 const ParallaxLastName = () => {
   return (
-   <div className={"ParallaxLastName"}>
-     <FirstName />
-     <LastName />
-   </div>
+    <div className='ParallaxLastName'>
+      <FirstName />
+      <LastName />
+    </div>
 
   )
 }
 
 
-export default ParallaxLastName;
+export default ParallaxLastName
