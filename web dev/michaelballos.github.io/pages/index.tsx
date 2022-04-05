@@ -10,8 +10,11 @@ const HomePage = () => {
   return (
     <div className='container'>
       <ParallaxPlain />
-      <FirstName />
-      <LastName />
+      <div className='nameContainer'>
+        <FirstName />
+        <LastName />
+      </div>
+      <ParallaxPlain />
       <ParallaxTechVaporwave />
     </div>
   )

@@ -1,10 +1,22 @@
+.nameContainer {
+    position: absolute;
+    background-color: transparent;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .FirstName,
 .LastName {
     font-size: 10rem;
     font-family: 'Karla', sans-serif;
-    background: transparent;
     color: rgb(64, 238, 221);
     text-shadow: 0px 3px 8px rgba(14, 1, 47, 0.393);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
