@@ -1,7 +1,8 @@
 import React from 'react'
 
 const LastName: React.FC = () => {
-  return <div className={'LastName'}>Ballos</div>
+  const lastName = `{Ballos}`
+  return <div className={'LastName'}>{lastName}</div>
 }
 
 export default LastName
