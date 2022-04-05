@@ -1,0 +1,75 @@
+.content {
+    position: absolute;
+    width: 40rem;
+    height: 30rem;
+    bottom: -140rem;
+    left: 60rem;
+    background-color: rgba(0, 4, 4, 0.779);
+}
+
+.slider-wrapper {
+    margin-top: 13rem;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider {
+    height: 50px;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+.slider div {
+    color: rgb(255, 255, 255);
+    height: 50px;
+    margin-bottom: 50px;
+    padding: 2px 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.slider-text1 {
+    background: lightgreen;
+    animation: slide 4s linear infinite;
+}
+
+.slider-text2 {
+    background: skyblue;
+}
+
+.slider-text3 {
+    background: lightcoral;
+}
+
+.slider-text4 {
+    background: lightcoral;
+}
+
+@keyframes slide {
+    0% {
+        margin-top: -300px;
+    }
+    5% {
+        margin-top: -200px;
+    }
+    33% {
+        margin-top: -200px;
+    }
+    38% {
+        margin-top: -100px;
+    }
+    66% {
+        margin-top: -100px;
+    }
+    71% {
+        margin-top: 0px;
+    }
+    100% {
+        margin-top: 0px;
+    }
+}
