@@ -5,9 +5,6 @@ import Head from 'next/head'
 import HomePage from '../pages/index'
 import './../css/parallax.css'
 import './../css/info.css'
-import './../css/pageborder.css'
-import './../css/ICanWrite.css'
-import './../css/ContactInfo.css'
 import 'animate.css'
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
