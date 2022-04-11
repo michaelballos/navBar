@@ -1,2 +1,2 @@
 # navBar
-Single Page Application, Routing, and Navbar Project
+Single Page Application, Routing, and Navbar Project one with vanilla js
